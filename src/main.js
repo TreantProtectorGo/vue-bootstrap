@@ -1,1 +1,6 @@
-console.log('Hello from main.js');
+import './assets/main.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')

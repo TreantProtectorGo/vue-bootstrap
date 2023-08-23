@@ -1,0 +1,57 @@
+[
+    {
+      "gtin": "4971749110984",
+      "name": "可口可樂８罐裝",
+      "price": "38.00",
+      "img": "https://api.pns.hk/medias/zoom-front-114639.jpg?context=bWFzdGVyfHBuc2hrL2ltYWdlc3wxMTIwNTB8aW1hZ2UvanBlZ3xhREpoTDJoak9DODVOVGcyTURNME16YzJOek0wTDFCT1UwaExMVEV4TkRZek9TMW1jbTl1ZEM1cWNHY3xlYmJhNzEwMmY3ZjkxZGNhODQzZWM5MDljMDYxYzlhMzg5ODhmYzdlZmVkZTRiMDIzNzhkNTc1YjZmOWQ2ODg5",
+      "batchNumber": "ABC123",
+      "serialNumber": "BCD123",
+      "expiryDate": "2023-12-31"
+    },
+    {
+      "gtin": "12345678901234",
+      "name": "Ａ 級泰國茉莉香米",
+      "price": "62.90",
+      "img": "https://api.pns.hk/medias/PREMIUM-THAI-FRAGRANT-RICE-195023.jpg?context=bWFzdGVyfHBuc2hrL2ltYWdlc3wxNDY4MjZ8aW1hZ2UvanBlZ3xhRFJpTDJoaVl5ODVNekU1TkRNMU1UY3pPVEU0TDFCU1JVMUpWVTBnVkVoQlNTQkdVa0ZIVWtGT1ZDQlNTVU5GTFRFNU5UQXlNeTVxY0djfGVmMDVjMGZlZmE1ZWQ4N2VjYjViMWE2MDgyMzk1NjcyNzljOWNlYWM4MjI1Yzg1MGRjNWM3ZWYzNDgwMzRjYmQ",
+      "batchNumber": "XYZ456", 
+      "serialNumber": "ZYX456",
+      "expiryDate": "2024-06-30"
+    },
+    {
+      "gtin": "98765432109876",
+      "name": "椰汁蛋卷",
+      "price": "16.90",
+      "img": "https://api.pns.hk/medias/COCONUT-EGG-ROLL-394623.jpg?context=bWFzdGVyfHBuc2hrL2ltYWdlc3wxOTk1Nzl8aW1hZ2UvanBlZ3xhR013TDJnME15ODVNekl6TmpJek56YzJNamcyTDBOUFEwOU9WVlFnUlVkSElGSlBURXd0TXprME5qSXpMbXB3Wnd8MmM1N2EyYzBjMWI5ZjA3MjAyOGQwZjQ5NjVhODdmODhhOGRjNjcwNzQ4NWMzMGE4ZWM2YjcxZWEzOTYwZTlkZQ",
+      "batchNumber": "DEF789",
+      "serialNumber": "FED789",
+      "expiryDate": "2022-09-15"
+    },
+    {
+      "gtin": "56789012345678",
+      "name": "魚肉腸（扎裝）（琦玉縣）",
+      "price": "16.90",
+      "img": "https://api.pns.hk/medias/FISH-SAUSAGE-BUNDLE-SAITAMA-35966.jpg?context=bWFzdGVyfHBuc2hrL2ltYWdlc3wyNTQ0OTh8aW1hZ2UvanBlZ3xhRGcyTDJnNU1DODVNekl4TXpjNE56QTVOVE0wTDBaSlUwZ2dVMEZWVTBGSFJTQkNWVTVFVEVVZ1UwRkpWRUZOUVMwek5UazJOaTVxY0djfDkxNjUzYmViZWYxNjNjYzFiODk1NmI5NWQyYzcyYTMzOThjMWY1NzZmZWVkZWNmOTBkOTAzYTJhMjc1MmRkZTM",
+      "batchNumber": "GHI012",
+      "serialNumber": "IHG012",
+      "expiryDate": "2023-08-01"
+    },
+    {
+      "gtin": "54321678901234",
+      "name": "無添加鹽精選雜錦果仁",
+      "price": "39.90",
+      "img": "https://api.pns.hk/medias/zoom-front-391772.jpg?context=bWFzdGVyfHBuc2hrL2ltYWdlc3wxMDg3OTV8aW1hZ2UvanBlZ3xhR1EwTDJnM1ppODVOakV4TWpJMk5EUTNPVEF5TDFCT1UwaExMVE01TVRjM01pMW1jbTl1ZEM1cWNHY3w1ZDVkYTdmNmUxZTg2ZmU4OWY4YWFkMTcwMDg0NGIyMWQ5OTExYjJmNzdlYWUwYzEyNjhkOTQxMWZjNzU0MjI4",
+      "batchNumber": "JKL345",
+      "serialNumber": "LKJ345",
+      "expiryDate": "2024-03-31"
+    },
+    {
+      "gtin": "98765432101234",
+      "name": "蒟蒻啫喱 （桃＆提子）",
+      "price": "23.90",
+      "img": "https://api.pns.hk/medias/KONNYAKU-JELLY-0KCAL-PEACH-GRAPE-401887.jpg?context=bWFzdGVyfHBuc2hrL2ltYWdlc3wxMTcxMDl8aW1hZ2UvanBlZ3xhRGs0TDJnd055ODVNekl5TkRnM056QTVOekkyTDB0UFRrNVpRVXRWSUVwRlRFeFpJREJMUTBGTUlGQkZRVU5JSUNCSFVrRlFSUzAwTURFNE9EY3VhbkJufDc3YTBiYzE5YjE3MzEwMjVkYzAzMjdiZjNhYTU0YjVlYzdkM2VhY2RmZjkzODM2YjE5NWE3MmMxMWJkZGM1MDU",
+      "batchNumber": "MNO678",
+      "serialNumber": "ONM678",
+      "expiryDate": "2023-11-30"
+    }
+  ]
+  
