@@ -21,49 +21,6 @@
   body {
     font-family: 'General Sans', sans-serif;
   }
-
-  #snackbar {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #094FA3;
-    color: #fff;
-    text-align: center;
-    border-radius: 2vh;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-    margin-bottom: 12vh;
-  }
-
-  #snackbar.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
-  }
-
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-
-  @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 0; opacity: 0;}
-  }
-
-  @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
 </style>
 
 <template>
@@ -90,10 +47,6 @@
     </nav>
   </header>
   
-  <button @click="addToast()">Show Snackbar</button>
-  <div id="snackbar">sd</div>
-  
-
   <button class="btn btn-primary btn-floating p-2 rounded-circle"  @click="clickQr(); openScanner();" data-bs-toggle="modal" data-bs-target="#scanBarcodeDialog">
     <i class="material-icons">add</i>
   </button>
@@ -106,6 +59,9 @@
           <button @click="closeQr" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+        </div>
+        <div class="modal-body">
+          {{ addState }}
         </div>
         <div class="modal-body">
           <screenqrcode @scanned="handleScannedData" @ok="getResult" @err="geterror" v-if="open"></screenqrcode>
@@ -218,10 +174,9 @@
   </section>
 
   <footer>
-      <nav
-        class="nav border-top nav-pills nav-justified fixed-bottom flex-nowrap" 
-        
-      >
+    <nav
+      class="nav border-top nav-pills nav-justified fixed-bottom flex-nowrap" 
+    >
       <div class="btn-group" role="group" style="width:100%;" >
         <a href="https://treantprotectorgo.github.io/html-home/" class="btn btn-light" >
           <i style="display: flex; flex-direction: column; font-size: 28px;" class="material-icons">home</i>
@@ -237,7 +192,6 @@
           Cart
         </a>
       </div>
-
     </nav>
   </footer>
 
@@ -274,6 +228,7 @@ export default {
       showScanner: false,
       scanSuccess: false,
       open: false,
+      addState: "",
     };
   },
   components: { 
@@ -285,12 +240,6 @@ export default {
     this.fetchData();
   },
   methods: {
-    addToast(data) {
-      document.getElementById("snackbar").innerHTML = data;
-      var x = document.getElementById("snackbar");
-      x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    },
     clickQr() {
       // check browser
       if (
@@ -353,11 +302,11 @@ export default {
             this.cartItems.push({ barcode: this.barcode, count: 1, name: product.name, img: product.img, price: product.price });
             this.confirm.push(false);
           }
+          this.addState = "Product added successfully";
         }
         this.barcode = "";
-        this.addToast("Success");
       } else {
-        this.addToast("Unsuccess");
+        this.addState = "Please try again";
       }
       // this.scanSuccess = false;
     },
