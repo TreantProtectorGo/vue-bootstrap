@@ -1,0 +1,15 @@
+[
+    {
+      "id": "discound30dsas",
+      "name": "$10禮券",
+      "value": "10.00",
+      "condition": "0"
+    },
+    {
+      "id": "discound30adsj",
+      "name": "$30禮券",
+      "value": "30.00",
+      "condition": "60.00"
+    }
+]
+    
