@@ -24,9 +24,8 @@
 </style>
 
 <template>
-  <header>
-    <!-- Just an image -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light" style="max-height: 45px;">
+  <!-- <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light" style="max-height: 45px;">
       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
           <ul class="navbar-nav text-start">
               <li class="nav-item active">
@@ -40,13 +39,28 @@
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav ms-auto">
               <li class="nav-item" >
-                <i class="material-icons nav-link py-0 pe-4" style="font-size: 40px;">account_circle</i>
+                <i
+                  style="font-size: 25px;"
+                  v-if='screenState'
+                  class="material-icons nav-link py-0 pe-4"   
+                  @click="handlerScreenFull"
+                >open_in_full</i>
+
+                <i 
+                  style="font-size: 25px;"
+                  v-else
+                  class="material-icons nav-link py-0 pe-4"
+                  @click="handlerScreenFull"
+                >open_in_full</i>
               </li>
           </ul>
       </div>
     </nav>
-  </header>
-  
+  </header> -->
+
+
+
+
   <button class="btn btn-primary btn-floating p-2 rounded-circle"  @click="clickQr(); openScanner();" data-bs-toggle="modal" data-bs-target="#scanBarcodeDialog">
     <i class="material-icons">add</i>
   </button>
@@ -54,16 +68,11 @@
   <div class="modal fade" id="scanBarcodeDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Scan Code</h5>
-          <button @click="closeQr" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="exampleModalLongTitle">{{ addState }}</h5>
+          <button @click="closeQr" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          {{ addState }}
-        </div>
-        <div class="modal-body">
+        <div class="modal-body p-0 m-0">
           <screenqrcode @scanned="handleScannedData" @ok="getResult" @err="geterror" v-if="open"></screenqrcode>
         </div>
       </div>
@@ -205,6 +214,8 @@ import BarcodeScanner from "./BarcodeScanner.vue";
 import screenqrcode from "./screenqrcode.vue";
 import qrcode from "./qrcode.vue";
 
+import screenFull from 'screenfull';
+
 var browser = {  
   versions: (function () {
     var u = navigator.userAgent;
@@ -220,6 +231,7 @@ var browser = {
 export default {
   data() {
     return {
+      screenState: false,
       input: "",
       barcode: "",
       cartItems: [],
@@ -228,7 +240,7 @@ export default {
       showScanner: false,
       scanSuccess: false,
       open: false,
-      addState: "",
+      addState: "No product scanned",
     };
   },
   components: { 
@@ -236,10 +248,31 @@ export default {
     screenqrcode,
     qrcode
   },
+  created() {    
+    this.init();
+  },
   mounted() {
     this.fetchData();
   },
+  beforeDestroy() {  
+    if (screenFull.isEnabled) {    
+      screenFull.off('change', this.change);  
+    }
+  },
   methods: {
+    init() {    
+      if (screenFull.isEnabled) { 
+        screenFull.on('change', this.change); 
+      }
+    },
+    change() {      
+      this.screenState = screenFull.isFullscreen;
+    },
+    handlerScreenFull() {  
+      if (screenFull.isEnabled) { 
+        screenFull.toggle(); 
+      } 
+    },
     clickQr() {
       // check browser
       if (
@@ -247,6 +280,7 @@ export default {
         browser.versions.gecko
       ) {
         this.open = true;
+        this.addState = "No product scanned";
       } else {
         alert('browser not support');
       }
@@ -308,7 +342,7 @@ export default {
       } else {
         this.addState = "Please try again";
       }
-      // this.scanSuccess = false;
+      this.scanSuccess = false;
     },
     removeItem(index) {
       this.cartItems.splice(index, 1);
