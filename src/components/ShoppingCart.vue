@@ -168,19 +168,23 @@
                 <button class="btn btn-primary text-white" type="button">Apply</button>
               </div>
             </div>
-
-            <div class="mb-5 pb-5">
-              <div class="card">
-                <div class="card-body">
-                  <button type="button" class="btn btn-primary btn-lg w-100">Proceed to Pay  $ {{ cartTotalPrice() }}</button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <nav
+      class="fixed-bottom " 
+    >
+    <div class="mb-5 pb-3 ">
+      <div class="card">
+        <div class="card-body bg-light" style="width: 100%;">
+          <button type="button" class="btn btn-primary btn-lg w-100" @click="login">Proceed to Pay  $ {{ cartTotalPrice() }}</button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <footer>
     <nav
